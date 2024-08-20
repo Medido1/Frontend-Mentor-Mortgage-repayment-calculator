@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+  <link 
+      rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" 
+      as="style" 
+    />
+    <link 
+    rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" 
+     />
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Mortgage repayment calculator</title>
 </head>
 <body>
@@ -16,17 +26,23 @@
       <div class="input_grp">
         <label for="amount">Mortgage Amount</label>
         <input type="number" id="amount">
-        <p class="input_left">£</p>
+        <div class="input_left">
+          <p>£</p>
+        </div>
       </div>
       <div class="input_grp">
         <label for="term">Mortgage Term</label>
         <input type="number"  id="term">
-        <p class="input_right">years</p>
+        <div class="input_right">
+          <p>years</p>
+        </div>
       </div>
       <div class="input_grp">
         <label for="interest">Interest Rate</label>
         <input type="number" id="interest">
-        <p class="input_right">%</p>
+        <div class="input_right interest">
+          <p>%</p>
+        </div>
       </div>
       <fieldset>
         <legend>Mortgage Type</legend>
@@ -39,7 +55,10 @@
             <label for="interest_only">Interest Only</label>
           </div>
       </fieldset>
-      <button type="submit">Calculate Repayments</button>
+      <button type="submit" class="submit_btn">
+        <img src="./images/icon-calculator.svg" alt="icon calculator" class="icon">
+        <p>Calculate Repayments</p>
+      </button>
     </form>
     <div class="result_container">
       <img src="./images/illustration-empty.svg" class="illustration-empty">
