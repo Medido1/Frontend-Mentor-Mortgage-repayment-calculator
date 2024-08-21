@@ -26,21 +26,21 @@
     <form action="" class="my_form">
       <div class="input_grp">
         <label for="amount">Mortgage Amount</label>
-        <input type="number" id="amount">
+        <input type="number" id="mortgage_amount">
         <div class="input_left">
           <p>£</p>
         </div>
       </div>
       <div class="input_grp">
         <label for="term">Mortgage Term</label>
-        <input type="number"  id="term">
+        <input type="number"  id="mortgage_term">
         <div class="input_right">
           <p>years</p>
         </div>
       </div>
       <div class="input_grp">
         <label for="interest">Interest Rate</label>
-        <input type="number" id="interest">
+        <input type="number" id="interest" step="0.01">
         <div class="input_right interest">
           <p>%</p>
         </div>
@@ -67,13 +67,31 @@
         <p>Calculate Repayments</p>
       </button>
     </form>
-    <div class="empty_result_container">
+    <div class="empty_result_container hidden">
       <img src="./images/illustration-empty.svg" class="illustration-empty">
       <h2>Results shown here</h2>
       <p>
         Complete the form and click “calculate repayments” to see what 
         your monthly repayments would be.
       </p>
+    </div>
+    <div class="result_container">
+      <h2>Your results</h2>
+      <p>
+        Your results are shown above below based on the information 
+        you provided. To adjust the results, edit the form and click
+        "calculate repayments" again
+      </p>
+      <div class="values_container">
+        <div>
+          <p>Your monthly repayments</p>
+          <p class="monthly_repayments"></p>
+        </div>
+        <div>
+          <p>total you'll repay over the term</p>
+          <p class="total">$539.329</p>
+        </div>
+      </div>
     </div>
   </main>
 </body>

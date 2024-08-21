@@ -73,6 +73,7 @@ body {
   height: 2.6rem;
   border-radius: .5rem;
   border: 1px solid var(--Slate_700);
+  padding: 1rem;
 }
 
 .input_left,
@@ -182,23 +183,69 @@ fieldset div label {
   gap: .5rem;
 }
 
-.empty_result_container {
+.empty_result_container.hidden {
+  display: none;
+}
+
+.empty_result_container,
+.result_container {
   margin-top: 1rem;
   width: 100%;
   background-color: var(--Slate_900);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  
   gap: 1rem;
   padding: 1.25rem;
-  text-align: center;
 }
 
-.empty_result_container h2 {
+.empty_result_container {
+  text-align: center;
+  align-items: center;
+}
+
+.result_container {
+  text-align: left;
+}
+
+h2 {
   color: var(--White);
 }
 
-.empty_result_container p {
+.empty_result_container p,
+.result_container  {
   color: var(--Slate_500);
 }
+
+.values_container {
+  background-color: hsl(202, 55%, 14%);
+  padding: 1.25rem;
+  border-top: 4px solid var(--Lime);
+  border-radius: .5rem;
+}
+
+.values_container div:first-child {
+  border-bottom: .5px solid var(--Slate_700);
+}
+
+.values_container div:last-child {
+  padding-top: 1rem;
+}
+
+.values_container div {
+  padding-bottom: 1rem;
+}
+
+.monthly_repayments {
+  color: var(--Lime);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.total {
+  color: var(--White);
+  font-size: 1.25rem;
+  margin-top: .5rem;
+}
+
