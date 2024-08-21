@@ -6,6 +6,7 @@ const interestRate = document.getElementById("interest");
 const mortgageTerm = document.getElementById("mortgage_term");
 const mortgageAmount = document.getElementById("mortgage_amount");
 const monthlyPaymentText = document.querySelector(".monthly_repayments");
+const totalToPay = document.querySelector(".total");
 
 function toggleActive(element) {
   radioBtns.forEach((btn) => btn.classList.remove("clicked"));
@@ -17,17 +18,18 @@ function calculateRepayments(e) {
   let interestRateValue = parseFloat(interestRate.value) / 100 / 12; /* Monthly Interest Rate  */
   let mortgageTermValue = parseInt(mortgageTerm.value);
   let mortgageAmountValue = parseFloat(mortgageAmount.value);
+  let mortgageTermMonths = mortgageTermValue * 12; 
   let monthlyPayment = 0
   if (repayement.checked) {
     let r = interestRateValue 
-    let mortgageTermMonths = mortgageTermValue * 12; 
     monthlyPayment = 
     (mortgageAmountValue * r * (1 + r) ** mortgageTermMonths) / 
       ((1 + r) ** mortgageTermMonths - 1);
   } else if (interestOnly.checked) {
     monthlyPayment = mortgageAmountValue * interestRateValue
   }
-   monthlyPaymentText.textContent = `£${monthlyPayment.toFixed(2)}`
+   monthlyPaymentText.textContent = `£${monthlyPayment.toFixed(2)}`;
+   totalToPay.textContent = `£${(monthlyPayment * mortgageTermMonths).toFixed(2)}`
 }
 
 radioBtns.forEach((btn) => {
