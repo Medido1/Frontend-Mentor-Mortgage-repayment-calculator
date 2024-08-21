@@ -7,6 +7,19 @@ const mortgageTerm = document.getElementById("mortgage_term");
 const mortgageAmount = document.getElementById("mortgage_amount");
 const monthlyPaymentText = document.querySelector(".monthly_repayments");
 const totalToPay = document.querySelector(".total");
+const clearBtn = document.querySelector(".clear_btn");
+const emptyResultContainer = document.querySelector(".empty_result_container");
+const resultContainer = document.querySelector(".result_container");
+
+function clearAll() {
+  mortgageAmount.value = "";
+  mortgageTerm.value = "";
+  interestRate.value = "";
+  monthlyPaymentText.textContent = "";
+  totalToPay.textContent = "";
+  emptyResultContainer.classList.remove("hidden");
+  resultContainer.classList.add("hidden");
+}
 
 function toggleActive(element) {
   radioBtns.forEach((btn) => btn.classList.remove("clicked"));
@@ -15,11 +28,19 @@ function toggleActive(element) {
 
 function calculateRepayments(e) {
   e.preventDefault();
+  let mortgageAmountValue = parseFloat(mortgageAmount.value);
   let interestRateValue = parseFloat(interestRate.value) / 100 / 12; /* Monthly Interest Rate  */
   let mortgageTermValue = parseInt(mortgageTerm.value);
-  let mortgageAmountValue = parseFloat(mortgageAmount.value);
   let mortgageTermMonths = mortgageTermValue * 12; 
   let monthlyPayment = 0
+
+  emptyResultContainer.classList.add("hidden");
+  resultContainer.classList.remove("hidden");
+
+  if(isNaN(mortgageAmountValue) || isNaN(mortgageTermValue) || isNaN(interestRateValue)) {
+    alert("please fill in all fields with valid numbers");
+    return;
+  }
   if (repayement.checked) {
     let r = interestRateValue 
     monthlyPayment = 
@@ -37,3 +58,4 @@ radioBtns.forEach((btn) => {
 })
 
 myForm.addEventListener("submit", calculateRepayments);
+clearBtn.addEventListener("click", clearAll);

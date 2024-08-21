@@ -187,7 +187,8 @@ fieldset div label {
   gap: .5rem;
 }
 
-.empty_result_container.hidden {
+.empty_result_container.hidden,
+.result_container.hidden {
   display: none;
 }
 
