@@ -37,12 +37,17 @@ input, button, textarea, select {
 body {
   font-family: var(--font_family);
   background-color: var(--White);
+  height: 100vh;
 }
 
 .header {
   color: var(--Slate_900);
   padding: 1rem;
   font-size: .875rem;
+}
+
+h1 {
+  font-size: 1.25rem;
 }
 
 .clear_btn {
@@ -59,6 +64,7 @@ body {
 .main {
   color: var(--Slate_700);
   font-weight: 600;
+  max-width: 1000px;
 }
 
 .input_grp {
@@ -66,13 +72,13 @@ body {
   flex-direction: column;
   gap: .5rem;
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
 }
 
 .input_grp input {
   height: 2.6rem;
   border-radius: .5rem;
-  border: 1px solid var(--Slate_700);
+  border: 1px solid var(--Slate_300);
   padding: 1rem;
 }
 
@@ -83,7 +89,7 @@ body {
 .input_left,
 .input_right {
   position: absolute;
-  top: 44%;
+  top: 30%;
   height: 2.4rem;
   font-size: 1rem;
   background-color: var(--Slate_100);
@@ -91,6 +97,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.input_left.error,
+.input_right.error {
+  background-color: var(--Red);
+  color: var(--White);
 }
 
 .input_left {
@@ -143,17 +155,20 @@ fieldset div label {
   margin-left: 1rem;
 }
 
-.radio_container.clicked input[type="radio"] {
-  position: absolute;
+.radio_container input[type="radio"] {
   opacity: 0;
 }
 
-.radio_container.clicked .checkmark_container {
+.radio_container .checkmark_container {
   position: relative;
   height: 20px;
   width: 20px;
-  border: .5px solid var(--Lime);
+  border: .5px solid black;
   border-radius: 50%;
+}
+
+.radio_container.clicked .checkmark_container {
+  border: .5px solid var(--Lime);
   display: inline-block;
   display: flex;
   justify-content: center;
@@ -185,6 +200,10 @@ fieldset div label {
   align-items: center;
   justify-content: center;
   gap: .5rem;
+}
+
+.submit_btn:hover {
+  opacity: .8;
 }
 
 .empty_result_container.hidden,
@@ -254,3 +273,58 @@ h2 {
   margin-top: .5rem;
 }
 
+/* error handeling */
+
+.error_msg {
+  opacity: 1;
+  color: var(--Red);
+}
+
+.error_msg.hidden {
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-color: var(--Slate_100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main {
+    display: flex;
+    height: 500px;
+    background-color: var(--White);
+  }
+  .left_container {
+    width: 50%;
+    border-radius: 1rem 0 0 1rem;
+  }
+  .submit_btn {
+    margin: 0;
+    width: 60%;
+  }
+  .term_intereset {
+    display: flex;
+    justify-content: space-between;
+  }
+  .term_intereset .input_grp {
+    width: 40%;
+  }
+  .empty_result_container,
+  .result_container {
+    width: 50%;
+    margin: 0;
+    border-radius: 0 1rem 1rem 3rem;
+  }
+  .result_container {
+    justify-content: flex-start;
+  }
+  .monthly_repayments {
+    font-size: 3rem;
+  }
+}
