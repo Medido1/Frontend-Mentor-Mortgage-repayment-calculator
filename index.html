@@ -15,6 +15,7 @@
      />
   <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Mortgage repayment calculator</title>
+  <script src="./script.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -46,12 +47,18 @@
       </div>
       <fieldset>
         <legend>Mortgage Type</legend>
-          <div>
+          <div class="radio_container">
             <input type="radio" name="mortgage_type" id="repayment">
+            <span class="checkmark_container">
+              <span class="checkmark"></span>
+            </span>
             <label for="repayment">Repayment</label>
           </div>
-          <div>
+          <div class="radio_container">
             <input type="radio" name="mortgage_type" id="interest_only">
+            <span class="checkmark_container">
+              <span class="checkmark"></span>
+            </span>
             <label for="interest_only">Interest Only</label>
           </div>
       </fieldset>

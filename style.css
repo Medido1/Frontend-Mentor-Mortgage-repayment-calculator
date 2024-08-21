@@ -104,6 +104,12 @@ body {
   width: 30px;
 }
 
+.my_form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
 fieldset {
   border: 0;
 }
@@ -116,19 +122,46 @@ fieldset div {
   margin-bottom: .5rem;
   border: 1px solid rgba(0, 0, 0, .5);
   border-radius: .5rem;
-  padding: .5rem;
+  padding: .5rem 1rem;
   color: var(--Slate_900);
   font-weight: 700;
+
+  display: flex;
+  align-items: center;
+}
+
+fieldset div.clicked {
+  background-color: hsl(61, 70%, 82%);;
 }
 
 fieldset div label {
   margin-left: 1rem;
 }
 
-.my_form {
+.radio_container.clicked input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio_container.clicked .checkmark_container {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border: .5px solid var(--Lime);
+  border-radius: 50%;
+  display: inline-block;
   display: flex;
-  flex-direction: column;
-  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio_container.clicked .checkmark {
+  position: relative;
+  height: 10px;
+  width: 10px;
+  background-color: var(--Lime);
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .submit_btn {
