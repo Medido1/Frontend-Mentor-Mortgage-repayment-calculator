@@ -57,7 +57,6 @@ body {
 }
 
 .main {
-  padding: 1.25rem;
   color: var(--Slate_700);
   font-weight: 600;
 }
@@ -129,6 +128,7 @@ fieldset div label {
 .my_form {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 .submit_btn {
@@ -147,4 +147,25 @@ fieldset div label {
   align-items: center;
   justify-content: center;
   gap: .5rem;
+}
+
+.empty_result_container {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--Slate_900);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.empty_result_container h2 {
+  color: var(--White);
+}
+
+.empty_result_container p {
+  color: var(--Slate_500);
 }
