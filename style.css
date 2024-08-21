@@ -76,6 +76,10 @@ body {
   padding: 1rem;
 }
 
+.input_grp:first-child input {
+  padding-left: 2rem;
+}
+
 .input_left,
 .input_right {
   position: absolute;

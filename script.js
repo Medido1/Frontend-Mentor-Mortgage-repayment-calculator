@@ -17,7 +17,6 @@ function calculateRepayments(e) {
   let interestRateValue = parseFloat(interestRate.value) / 100 / 12; /* Monthly Interest Rate  */
   let mortgageTermValue = parseInt(mortgageTerm.value);
   let mortgageAmountValue = parseFloat(mortgageAmount.value);
-  console.log(mortgageAmountValue)
   let monthlyPayment = 0
   if (repayement.checked) {
     let r = interestRateValue 
@@ -25,8 +24,10 @@ function calculateRepayments(e) {
     monthlyPayment = 
     (mortgageAmountValue * r * (1 + r) ** mortgageTermMonths) / 
       ((1 + r) ** mortgageTermMonths - 1);
-    monthlyPaymentText.textContent = `£${monthlyPayment.toFixed(2)}`;
+  } else if (interestOnly.checked) {
+    monthlyPayment = mortgageAmountValue * interestRateValue
   }
+   monthlyPaymentText.textContent = `£${monthlyPayment.toFixed(2)}`
 }
 
 radioBtns.forEach((btn) => {
